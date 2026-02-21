@@ -19,32 +19,76 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: var(--text);
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 24px 20px 48px;
+      margin: 0;
+      padding: 0;
       background: var(--bg);
     }
-    /* Nav: same line as name, anchor links */
+    .wrapper {
+      display: flex;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      gap: 40px;
+    }
+    .sidebar {
+      flex: 0 0 200px;
+    }
+    .sidebar-inner {
+      position: sticky;
+      top: 24px;
+    }
+    .avatar {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .sidebar .site-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 14px 0;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sidebar nav a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .sidebar nav a:hover { text-decoration: underline; }
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
     .site-header {
       margin-bottom: 32px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
-    .site-title {
+    .site-header .site-title {
       font-size: 1.75rem;
       font-weight: 700;
       margin: 0 0 12px 0;
     }
-    nav {
+    .main-content nav {
       display: flex;
       flex-wrap: wrap;
       gap: 12px 20px;
     }
-    nav a {
+    .main-content nav a {
       color: var(--link);
       text-decoration: none;
     }
-    nav a:hover { text-decoration: underline; }
+    .main-content nav a:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .wrapper { flex-direction: column; }
+      .sidebar { flex: none; }
+      .sidebar-inner { position: static; }
+    }
     /* Sections */
     section {
       margin-bottom: 40px;
@@ -87,6 +131,21 @@
   </style>
 </head>
 <body>
+  <div class="wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <img class="avatar" src="images/proflie.jpg" alt="Aoyu Liu">
+        <h1 class="site-title">Aoyu Liu</h1>
+        <nav>
+          <a href="#about">About Me</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#coauthors">Co-authors</a>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="main-content">
   <header class="site-header">
     <h1 class="site-title">Aoyu Liu</h1>
     <nav>
@@ -125,6 +184,9 @@
       <h2>Publications</h2>
 
       <div class="pub">
+        <div class="pub-image">
+          <img src="images/publications/expocm.png" alt="ExpoCM pipeline">
+        </div>
         <div class="pub-body">
           <div class="pub-title">
             <a href="files/ExpoCM_CVPR2026.pdf">ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</a>
@@ -148,5 +210,7 @@
       </ul>
     </section>
   </main>
+    </div>
+  </div>
 </body>
 </html>
