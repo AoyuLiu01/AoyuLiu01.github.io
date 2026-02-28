@@ -146,16 +146,10 @@
     .lang-switcher button:hover { text-decoration: underline; }
     .lang-switcher button.active { font-weight: 600; color: var(--text); }
     .lang-switcher button + button::before { content: " / "; color: var(--muted); pointer-events: none; }
-    body.lang-zh .lang-en { display: none !important; }
-    body.lang-zh .lang-zh { display: inline; }
-    body.lang-zh p.lang-zh, body.lang-zh li.lang-zh { display: block !important; }
-    body.lang-en .lang-zh { display: none !important; }
-    body.lang-en .lang-en { display: inline; }
-    body.lang-en p.lang-en, body.lang-en li.lang-en { display: block !important; }
-    .lang-zh { display: none; }
+    [hidden] { display: none !important; }
   </style>
 </head>
-<body class="lang-en">
+<body>
   <div class="wrapper">
     <aside class="sidebar">
       <div class="sidebar-inner">
@@ -257,21 +251,41 @@
       var KEY = 'site-lang';
       var body = document.body;
       var btns = document.querySelectorAll('.lang-btn');
-      function setLang(lang) {
-        body.classList.remove('lang-en', 'lang-zh');
-        body.classList.add('lang-' + lang);
-        btns.forEach(function(b) {
-          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
-        });
-        try { localStorage.setItem(KEY, lang); } catch (e) {}
+      var enNodes = document.querySelectorAll('.lang-en');
+      var zhNodes = document.querySelectorAll('.lang-zh');
+
+      function toggleNodes(nodes, hidden) {
+        for (var i = 0; i < nodes.length; i += 1) {
+          nodes[i].hidden = hidden;
+        }
       }
-      btns.forEach(function(btn) {
-        btn.addEventListener('click', function() { setLang(this.getAttribute('data-lang')); });
-      });
+
+      function setLang(lang) {
+        var target = lang === 'zh' ? 'zh' : 'en';
+        toggleNodes(enNodes, target !== 'en');
+        toggleNodes(zhNodes, target !== 'zh');
+        body.setAttribute('data-lang', target);
+
+        for (var i = 0; i < btns.length; i += 1) {
+          var isActive = btns[i].getAttribute('data-lang') === target;
+          btns[i].classList.toggle('active', isActive);
+        }
+
+        try { localStorage.setItem(KEY, target); } catch (e) {}
+      }
+
+      for (var i = 0; i < btns.length; i += 1) {
+        btns[i].addEventListener('click', function() {
+          setLang(this.getAttribute('data-lang'));
+        });
+      }
+
+      var saved = 'en';
       try {
-        var saved = localStorage.getItem(KEY);
-        if (saved === 'zh' || saved === 'en') setLang(saved);
+        var value = localStorage.getItem(KEY);
+        if (value === 'zh' || value === 'en') saved = value;
       } catch (e) {}
+      setLang(saved);
     })();
   </script>
 </body>
