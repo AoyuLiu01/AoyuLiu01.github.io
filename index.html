@@ -128,60 +128,100 @@
     /* Co-authors: simple list or grid */
     .coauthors-list { list-style: none; padding-left: 0; }
     .coauthors-list li { margin-bottom: 6px; }
+    /* Language switcher */
+    .lang-switcher {
+      text-align: right;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-switcher button {
+      background: none;
+      border: none;
+      color: var(--link);
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 0 6px;
+    }
+    .lang-switcher button:hover { text-decoration: underline; }
+    .lang-switcher button.active { font-weight: 600; color: var(--text); }
+    .lang-switcher button + button::before { content: " / "; color: var(--muted); pointer-events: none; }
+    body.lang-zh .lang-en { display: none !important; }
+    body.lang-zh .lang-zh { display: inline; }
+    body.lang-zh p.lang-zh, body.lang-zh li.lang-zh { display: block !important; }
+    body.lang-en .lang-zh { display: none !important; }
+    body.lang-en .lang-en { display: inline; }
+    body.lang-en p.lang-en, body.lang-en li.lang-en { display: block !important; }
+    .lang-zh { display: none; }
   </style>
 </head>
-<body>
+<body class="lang-en">
   <div class="wrapper">
     <aside class="sidebar">
       <div class="sidebar-inner">
         <img class="avatar" src="images/proflie.jpg" alt="Aoyu Liu">
         <h1 class="site-title">Aoyu Liu</h1>
         <nav>
-          <a href="#about">About Me</a>
-          <a href="#news">News</a>
-          <a href="#publications">Publications</a>
+          <a href="#about"><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></a>
+          <a href="#news"><span class="lang-en">News</span><span class="lang-zh">新闻</span></a>
+          <a href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
           <a href="#coauthors">Co-authors</a>
         </nav>
       </div>
     </aside>
 
     <div class="main-content">
+  <div class="lang-switcher">
+    <button type="button" class="lang-btn active" data-lang="en">English</button>
+    <button type="button" class="lang-btn" data-lang="zh">中文</button>
+  </div>
   <header class="site-header">
     <h1 class="site-title">Aoyu Liu</h1>
     <nav>
-      <a href="#about">About Me</a>
-      <a href="#news">News</a>
-      <a href="#publications">Publications</a>
+      <a href="#about"><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></a>
+      <a href="#news"><span class="lang-en">News</span><span class="lang-zh">新闻</span></a>
+      <a href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
       <a href="#coauthors">Co-authors</a>
     </nav>
   </header>
 
   <main>
     <section id="about">
-      <h2>About Me</h2>
-      <p>
+      <h2><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></h2>
+      <p class="lang-en">
         I am Aoyu Liu, an undergraduate student at the
         <a href="https://www.yingcai.uestc.edu.cn/en/">Yingcai Honors College</a>,
         <a href="https://en.uestc.edu.cn/">University of Electronic Science and Technology of China</a>,
         where I am pursuing a B.S. in Mathematics and Computer Science.
       </p>
-      <p>
+      <p class="lang-zh">
+        我是刘傲宇，<a href="https://www.yingcai.uestc.edu.cn/en/">电子科技大学英才学院</a>、
+        <a href="https://en.uestc.edu.cn/">电子科技大学</a>本科生，攻读数学与计算机科学学士学位。
+      </p>
+      <p class="lang-en">
         By the time of my sophomore year, my research focused on low-level computer vision.
         I work under the guidance of <a href="https://liushuaicheng.org">Prof. Shuaicheng Liu</a> in the
         <a href="https://www.sice.uestc.edu.cn/kxyj/kytd/xxgcx/txclyjtd.htm">Image Processing Lab</a> at UESTC.
         During this period, I am fortunate to work closely with <a href="https://liuzhen03.github.io/">Dr. Zhen Liu</a>.
       </p>
+      <p class="lang-zh">
+        自大二起，我的研究集中在低级计算机视觉。我在电子科技大学
+        <a href="https://www.sice.uestc.edu.cn/kxyj/kytd/xxgcx/txclyjtd.htm">图像处理实验室</a>
+        <a href="https://liushuaicheng.org">刘帅成教授</a>的指导下工作，并有幸与
+        <a href="https://liuzhen03.github.io/">刘振博士</a>密切合作。
+      </p>
     </section>
 
     <section id="news">
-      <h2>News</h2>
+      <h2><span class="lang-en">News</span><span class="lang-zh">新闻</span></h2>
       <ul>
-        <li><strong>2026</strong>: Our paper <em>ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</em> is accepted to <strong>CVPR 2026</strong>.</li>
+        <li class="lang-en"><strong>2026</strong>: Our paper <em>ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</em> is accepted to <strong>CVPR 2026</strong>.</li>
+        <li class="lang-zh"><strong>2026</strong>：我们的论文 <em>ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</em> 被 <strong>CVPR 2026</strong> 接收。</li>
       </ul>
     </section>
 
     <section id="publications">
-      <h2>Publications</h2>
+      <h2><span class="lang-en">Publications</span><span class="lang-zh">论文</span></h2>
 
       <div class="pub">
         <div class="pub-image">
@@ -194,7 +234,7 @@
           <div class="pub-meta">Aoyu Liu, Zhen Liu, Ziyi Wang, Dian Chen, Bing Zeng, Shuaicheng Liu</div>
           <div class="pub-meta"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2026</div>
           <div class="pub-links">
-            <a href="files/ExpoCM_CVPR2026.pdf">Paper</a>
+            <a href="files/ExpoCM_CVPR2026.pdf"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
             <a href="files/ExpoCM_CVPR2026.bib">BibTeX</a>
           </div>
         </div>
@@ -212,5 +252,27 @@
   </main>
     </div>
   </div>
+  <script>
+    (function() {
+      var KEY = 'site-lang';
+      var body = document.body;
+      var btns = document.querySelectorAll('.lang-btn');
+      function setLang(lang) {
+        body.classList.remove('lang-en', 'lang-zh');
+        body.classList.add('lang-' + lang);
+        btns.forEach(function(b) {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        try { localStorage.setItem(KEY, lang); } catch (e) {}
+      }
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() { setLang(this.getAttribute('data-lang')); });
+      });
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'zh' || saved === 'en') setLang(saved);
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
