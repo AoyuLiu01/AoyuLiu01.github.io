@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aoyu Liu - Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm;
+    }
+
+    :root {
+      --ink: #1d2433;
+      --muted: #5e6573;
+      --line: #d9dee7;
+      --accent: #0f4c81;
+      --accent-soft: #eef4fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.35;
+    }
+
+    .page {
+      max-width: 190mm;
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .meta a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .meta a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      margin-top: 11px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+    }
+
+    .summary {
+      margin: 0;
+      font-size: 12.5px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 7px;
+    }
+
+    .chip {
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    .news {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 12.5px;
+    }
+
+    .news li {
+      margin-bottom: 4px;
+    }
+
+    .pub-card {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 10px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      break-inside: avoid;
+    }
+
+    .pub-card + .pub-card {
+      margin-top: 8px;
+    }
+
+    .pub-card img {
+      width: 86px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .pub-title {
+      margin: 0 0 8px;
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+
+    .pub-title a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .pub-title a:hover {
+      text-decoration: underline;
+    }
+
+    .pub-meta {
+      margin: 4px 0;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    .pub-links {
+      margin-top: 8px;
+      font-size: 11.5px;
+    }
+
+    .pub-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 14px;
+    }
+
+    .pub-links a:hover {
+      text-decoration: underline;
+    }
+
+    .coauthors {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .coauthor {
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 11.5px;
+      background: #fafbfd;
+    }
+
+    .coauthor a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .coauthor a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 12px;
+      padding-top: 6px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @media screen and (max-width: 700px) {
+      .hero,
+      .pub-card,
+      .coauthors {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar,
+      .pub-card img {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img class="avatar" src="images/profile.png" alt="Aoyu Liu">
+      <div>
+        <h1>Aoyu Liu</h1>
+        <p class="subtitle">Undergraduate Student, Yingcai Honors College, University of Electronic Science and Technology of China</p>
+        <div class="meta">
+          <span>B.S. in Mathematics and Computer Science</span>
+          <a href="https://www.yingcai.uestc.edu.cn/en/">Yingcai Honors College</a>
+          <a href="https://en.uestc.edu.cn/">UESTC</a>
+          <a href="https://www.sice.uestc.edu.cn/kxyj/kytd/xxgcx/txclyjtd.htm">Image Processing Lab</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Profile</h2>
+      <p class="summary">
+        I am Aoyu Liu, an undergraduate student at the Yingcai Honors College, University of Electronic Science and Technology of China, where I am pursuing a B.S. in Mathematics and Computer Science.
+      </p>
+      <p class="summary" style="margin-top:8px;">
+        By the time of my sophomore year, my research focused on low-level computer vision. I work under the guidance of <a href="https://liushuaicheng.org">Prof. Shuaicheng Liu</a> in the Image Processing Lab at UESTC. During this period, I am fortunate to work closely with <a href="https://liuzhen03.github.io/">Dr. Zhen Liu</a>.
+      </p>
+      <div class="chips">
+        <span class="chip">Low-level Computer Vision</span>
+        <span class="chip">Image Processing</span>
+        <span class="chip">HDR Reconstruction</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>News</h2>
+      <ul class="news">
+        <li><strong>2026:</strong> Our work <em>Unleashing Pretrained Generative Priors for Single-Image HDR Reconstruction via Uncertainty-Routed Attention</em> is in submission to <strong>SIGGRAPH Asia / ACM TOG</strong>.</li>
+        <li><strong>2026:</strong> Our paper <em>ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</em> is accepted to <strong>CVPR 2026</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Selected Publications</h2>
+      <article class="pub-card">
+        <img src="images/publications/GenHDR.png" alt="GenHDR uncertainty-routed attention">
+        <div>
+          <h3 class="pub-title">
+            Supplementary Material: Unleashing Pretrained Generative Priors for Single-Image HDR Reconstruction via Uncertainty-Routed Attention
+          </h3>
+          <p class="pub-meta">Aoyu Liu et al.</p>
+          <p class="pub-meta"><em>ACM Transactions on Graphics (TOG), SIGGRAPH Asia</em>, in submission</p>
+          <p class="summary">
+            Research on pretrained generative priors for single-image HDR reconstruction with uncertainty-routed attention.
+          </p>
+        </div>
+      </article>
+
+      <article class="pub-card">
+        <img src="images/publications/expocm.png" alt="ExpoCM pipeline">
+        <div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/html/2605.02464v1">ExpoCM: Exposure-Aware One-Step Generative Single-Image HDR Reconstruction</a>
+          </h3>
+          <p class="pub-meta">Aoyu Liu, Zhen Liu, Ziyi Wang, Dian Chen, Bing Zeng, Shuaicheng Liu</p>
+          <p class="pub-meta"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2026</p>
+          <p class="summary">
+            Research on exposure-aware one-step generative reconstruction for single-image HDR imaging.
+          </p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/html/2605.02464v1">arXiv</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Collaborators</h2>
+      <div class="coauthors">
+        <div class="coauthor"><a href="https://liuzhen03.github.io/">Zhen Liu</a></div>
+        <div class="coauthor"><a href="https://ziyiwang.me/">Ziyi Wang</a></div>
+        <div class="coauthor"><a href="http://liushuaicheng.org/">Shuaicheng Liu</a></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Generated from the local contents of AoyuLiu01.github.io-master on May 20, 2026.
+    </div>
+  </div>
+</body>
+</html>
