@@ -10,5 +10,5 @@ date: 2026-05-20
 venue: "ACM Transactions on Graphics (TOG), SIGGRAPH Asia"
 status: "In submission"
 exhibitionurl: "/exhibition/GenHDR.pdf"
-citation: 'A. Liu et al., &quot;Unleashing Pretrained Generative Priors for Single-Image HDR Reconstruction via Uncertainty-Routed Attention,&quot; submitted to <i>ACM Transactions on Graphics (TOG), SIGGRAPH Asia</i>, 2026. In submission.'
+citation: 'A. Liu, Z. Liu, Z. Wang, B. Zeng, and S. Liu, &quot;Unleashing Pretrained Generative Priors for Single-Image HDR Reconstruction via Uncertainty-Routed Attention,&quot; submitted to <i>ACM Transactions on Graphics (TOG), SIGGRAPH Asia</i>, 2026. In submission.'
 ---
